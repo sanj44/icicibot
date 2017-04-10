@@ -14,7 +14,7 @@ module.exports = function(bp) {
 			res.on('data', function(d) {
 				UserData=JSON.parse(d.toString())[0];
 				const first_name = event.user.first_name
-				bp.messenger.sendText(event.user.id, 'Hello, ' + first_name +", your account number is " +UserData.account_no, { typing: true })
+				bp.messenger.sendText(event.user.id, first_name +", your account number is " +UserData.account_no, { typing: true })
 			});
 		});
 			reqGet.end();
@@ -43,7 +43,34 @@ module.exports = function(bp) {
 			});
   
   });
-  
+  bp.hear(/hi|hello|hey/i, (event, next) => {	  		
+		const first_name = event.user.first_name
+		var random=Math.floor(Math.random()*3);
+		if(random==0){
+			bp.messenger.sendText(event.user.id,  first_name +", Hello, how are you doing ?", { typing: true })	
+		}
+		else if(random==1){
+			bp.messenger.sendText(event.user.id,"Hello "+first_name +"!", { typing: true })	
+		}
+		else{
+			bp.messenger.sendText(event.user.id,"Hi "+first_name +"! whats going on ?", { typing: true })	
+		}
+		
+  });
+  bp.hear(/doing good|playing|working|watching/i, (event, next) => {	  		
+		const first_name = event.user.first_name
+		var random=Math.floor(Math.random()*3);
+		if(random==0){
+			bp.messenger.sendText(event.user.id, "Very Nice " + first_name, { typing: true })	
+		}
+		else if(random==1){
+			bp.messenger.sendText(event.user.id,"Awesome "+first_name +"!", { typing: true })	
+		}
+		else{
+			bp.messenger.sendText(event.user.id,"Great "+first_name +"!", { typing: true })
+		}
+		
+  });
   bp.hear(/spent on movie/i, (event, next) => {	  
 			
 			var optionsget = {
@@ -93,7 +120,7 @@ module.exports = function(bp) {
 						bp.messenger.sendText(event.user.id,  first_name +",  you spent "+UserData[amountspent].transaction_amount+" INR on "+UserData[amountspent].transactiondate+" for "+UserData[amountspent].remark+".", { typing: true });
 					}
 					else{
-					bp.messenger.sendText(event.user.id,  first_name +", you not paid any of the electricity bill yet.", { typing: true });
+					bp.messenger.sendText(event.user.id, "you not paid any of the electricity bill yet.", { typing: true });
 					}
 				});
 			});
@@ -103,27 +130,27 @@ module.exports = function(bp) {
 		});
 	});
       
-	bp.hear(/How much was it last time Did i pay a penalty/i, (event, next) => {	  
+	bp.hear(/last time | penalty/i, (event, next) => {	  
+		const first_name = event.user.first_name
+		bp.messenger.sendText(event.user.id,  "sorry for the inconvinence caused to you but unfortunately i am not able to answer.", { typing: true })
+	});
+	bp.hear(/my income tax/i, (event, next) => {	  
+		const first_name = event.user.first_name
+		bp.messenger.sendText(event.user.id, "this part of me is under development once i get update me i ll be able to calculate it for you,  Thank you "+first_name+".", { typing: true })
+	});
+	bp.hear(/invest last month/i, (event, next) => {	  
 		const first_name = event.user.first_name
 		bp.messenger.sendText(event.user.id,  first_name +",  sorry for the inconvinence caused to you but unfortunately i am not able to answer.", { typing: true })
 	});
-	bp.hear(/How much do you think is my income tax/i, (event, next) => {	  
-		const first_name = event.user.first_name
-		bp.messenger.sendText(event.user.id,  first_name +",  this part of me is under development once my auther updated me i ll be able to calculate it for you,  Thank you "+first_name+".", { typing: true })
-	});
-	bp.hear(/How much did i invest last month/i, (event, next) => {	  
+	bp.hear(/my portfolio doing/i, (event, next) => {	  
 		const first_name = event.user.first_name
 		bp.messenger.sendText(event.user.id,  first_name +",  sorry for the inconvinence caused to you but unfortunately i am not able to answer.", { typing: true })
 	});
-	bp.hear(/How is my portfolio doing/i, (event, next) => {	  
+	bp.hear(/Insurance premium is | due/i, (event, next) => {	  
 		const first_name = event.user.first_name
-		bp.messenger.sendText(event.user.id,  first_name +",  sorry for the inconvinence caused to you but unfortunately i am not able to answer.", { typing: true })
+		bp.messenger.sendText(event.user.id,  "Your insurance premium is due on 23, July 2017 .", { typing: true })
 	});
-	bp.hear(/Insurance premium is due/i, (event, next) => {	  
-		const first_name = event.user.first_name
-		bp.messenger.sendText(event.user.id,  first_name +",  sorry for the inconvinence caused to you but unfortunately i am not able to answer.", { typing: true })
-	});
-	bp.hear(/Lost my credit card/i, (event, next) => {	  
+	bp.hear(/Lost credit card/i, (event, next) => {	  
 		const first_name = event.user.first_name
 		bp.messenger.sendText(event.user.id,  first_name +", sorry to hear that please call customer executive to block your card immidately", { typing: true })
 	});

@@ -512,3 +512,10 @@
 {"level":"info","message":"\u001b[32m\u001b[1mBot launched. Visit: http://localhost:3000\u001b[22m\u001b[39m","timestamp":"2017-04-05T13:11:00.486Z"}
 {"level":"debug","message":"[messenger] updating ngrok to facebook","timestamp":"2017-04-05T13:11:00.536Z"}
 {"level":"info","message":"[notification::botpress-messenger] Upgraded messenger app webhook with new ngrok url","timestamp":"2017-04-05T13:11:09.160Z"}
+{"level":"info","message":"Starting botpress version 0.1.7","timestamp":"2017-04-06T05:12:17.419Z"}
+{"level":"info","message":"Loaded 1 modules","timestamp":"2017-04-06T05:12:17.945Z"}
+{"level":"debug","message":"Loading middleware: hear","timestamp":"2017-04-06T05:12:18.138Z"}
+{"level":"debug","message":"Loading middleware: messenger.sendMessages","timestamp":"2017-04-06T05:12:18.139Z"}
+{"level":"info","message":"\u001b[32m\u001b[1mBot launched. Visit: http://localhost:3000\u001b[22m\u001b[39m","timestamp":"2017-04-06T05:12:22.261Z"}
+{"level":"debug","message":"[messenger] updating ngrok to facebook","timestamp":"2017-04-06T05:12:22.321Z"}
+{"level":"info","message":"[notification::botpress-messenger] Upgraded messenger app webhook with new ngrok url","timestamp":"2017-04-06T05:12:36.487Z"}
